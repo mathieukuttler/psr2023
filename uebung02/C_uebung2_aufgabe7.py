@@ -1,26 +1,25 @@
-#string = input('bitte String eingeben')
-# Zeile 1 muss bei Abgabe aktiv sein
+# gruppe C
+# 817928, 787490, 821198
+# Übung 2: Aufgabe 7
 
-# string hier nur zum testen:
-string = "Spinatpizza mit Pommes"
+string = input('Bitte geben Sie etwas ein.')
+
+'''
+wir bauen den output der Beispiele  
+aus der Aufgabe nach:
+'''
+
+string = 'hallo, welt'
 
 a = string.count('a')
+print(a)
 b = string[::-1]
 print(b)
 c = string[::2]
 print(c)
 d = string[-3:]
 print(d)
-e = string.replace(' ','***')
-# wurde der Befehl "replace" in den Veranstaltungen erwähnt?
-# https://docs.python.org/3/library/stdtypes.html?highlight=replace#str.replace
-# in den Folien finde ich den nicht.
-# hab den tutoriennen gemailt, ob wir den trotzdem einreichen können.
-# man könnte da auch mit '***'.join(splitted_input_list) machen, wenn man den Input vorher splittet
-# mit einer Schleife, aber das kommt erst in ein paar Wochen. 
-sring_wordlist = string.split()
-e = spring 
+
+words = string.split(' ')
+e = words[0] + '***' + words[1]
 print(e)
-
-
-
