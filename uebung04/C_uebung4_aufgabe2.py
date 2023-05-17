@@ -3,37 +3,43 @@
 # es ist beim Tokenisieren (splitten) 
 # eines Textes entstanden 
 
-input_token = "    '!?A'.z'bde,'peter's,!?  "
+verunreinigter_token = "    '!?A'.z'bde,'peter's,!?  "
 
-input_token = input('gib was ein' + '\n')
-
+x = verunreinigter_token
+#x = "'s"
+print(f'Input: {x}')
 # 1. Satzzeichen löschen
+
 satzzeichen = [',','.','!','?']
-for x in satzzeichen:
-    input_token = input_token.replace(x,'') 
+for sz in satzzeichen:
+    x = x.replace(sz,'') 
+#print(x)    
 
 # 2. Leerzeichen an den Ränden löschen
-input_token = input_token.strip()
+x = x.strip() 
+# umständlicher möglich mit .lstrip() und .rstrip()
+#print(x)
 
 # 3.a. "doppelte" Anführungszeichen
-input_token = input_token.replace('"','')
+x = x.replace('"','')
+#print(x)
 
-# 3.b einfache Anführungszeichen löschen 
+# 3.b Aufgabe: einfache Anführungszeichen löschen 
 # außer folgender Ausnahme:
-'''
-um solche Fälle zu berücksichtigen, sollen 
-einfache Anführungszeichen am Anfang eines Wortes 
-ohne entsprechendes Anführungszeichen am Ende des Wortes 
-nicht entfernt werden
-'''
-if input_token.startswith('\''):
-    input_token = input_token[1:].replace('\'','')
-else:
-    input_token = input_token.replace('\'','')
+# "um solche Fälle zu berücksichtigen, sollen 
+# einfache Anführungszeichen am Anfang eines Wortes 
+# ohne entsprechendes Anführungszeichen am Ende des Wortes 
+# nicht entfernt werden"
 
-out_message = input_token
-if len(out_message) == 0:
-    out_message = 'Kein Token gefunden'
-    
-print(f'> original: {input_token}')
-print(f'> output: {out_message}')
+# als Beispiel wird uns gegeben: x = "let's" => "let" und "'s" 
+# wir sollen beide Fälle berücksichtigen
+if x.startswith('\''): # falls "'" am Anfang des Wortes
+    # Rest des Wortes bereinigen und Wort wieder zusammenfügen
+    x = '\'' + x[1:].replace('\'','') 
+#print(x)
+
+# jetzt die Ausgabe:
+if len(x) == 0:
+    print('Kein Token gefunden')
+else:
+    print(f'output: {x}')
