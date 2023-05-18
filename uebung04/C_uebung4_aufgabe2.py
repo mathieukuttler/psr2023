@@ -1,28 +1,18 @@
-# ein "verunreinigten Token" ist laut Aurora 
-# ein Token mit überflüssigen Zeichen
-# es ist beim Tokenisieren (splitten) 
-# eines Textes entstanden 
-
 verunreinigter_token = "    '!?A'.z'bde,'peter's,!?  "
-
 x = verunreinigter_token
-#x = "'s"
 print(f'Input: {x}')
-# 1. Satzzeichen löschen
 
+# 1. Satzzeichen löschen
 satzzeichen = [',','.','!','?']
 for sz in satzzeichen:
     x = x.replace(sz,'') 
-#print(x)    
 
 # 2. Leerzeichen an den Ränden löschen
 x = x.strip() 
 # umständlicher möglich mit .lstrip() und .rstrip()
-#print(x)
 
 # 3.a. "doppelte" Anführungszeichen
 x = x.replace('"','')
-#print(x)
 
 # 3.b Aufgabe: einfache Anführungszeichen löschen 
 # außer folgender Ausnahme:
@@ -30,13 +20,16 @@ x = x.replace('"','')
 # einfache Anführungszeichen am Anfang eines Wortes 
 # ohne entsprechendes Anführungszeichen am Ende des Wortes 
 # nicht entfernt werden"
-
 # als Beispiel wird uns gegeben: x = "let's" => "let" und "'s" 
-# wir sollen beide Fälle berücksichtigen
-if x.startswith('\''): # falls "'" am Anfang des Wortes
-    # Rest des Wortes bereinigen und Wort wieder zusammenfügen
-    x = '\'' + x[1:].replace('\'','') 
-#print(x)
+
+# falls "'" am Anfang des Wortes
+if x.startswith('\''):
+    # Rest des Wortes bereinigen und Wort wieder zusammenfügen:
+    x = '\'' + x[1:].replace('\'','')
+else:
+    x = x.replace('\'','')
+# ich habe hier die Anweisung befolgt,
+# die sagt, wir bekommen ein "'s" als token
 
 # jetzt die Ausgabe:
 if len(x) == 0:

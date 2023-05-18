@@ -15,28 +15,28 @@ for regel in testlist:
     correct_rule = True
 
     
-    # 1. Regeln sollten genau nur einen Pfeil ("-->") enthalten
+    # 1. "Regeln sollten genau nur einen Pfeil ("-->") enthalten"
     pfeil = '-->'
     res = regel.count(pfeil)
     if res == 0:
         correct_rule = False
     elif res > 1:
         correct_rule = False
-    else: #es gibt genau 1 Pfeil
-        # also zuerst linke Seite und rechte Seite trennen: 
+    else: 
+        # es gibt nicht 0 und auch nicht >1 Pfeile
+        # also bleibt nur noch 1 Pfeil
+        # wir trennen linke Seite und rechte Seite 
+        # und bearbeiten die einzeln 
+        # mit ihren eigenen Vorgaben: 
         links_rechts = regel.split('-->')
         links = links_rechts[0].strip()
         rechts = links_rechts[1].strip()
-        # .strip() hier zur Sicherheit
+        # .strip() hier als good practice
         
         # linke Seite: wir prüfen sie in einem Rutsch:
+        
         # "die linke Seite sollte genau ein Symbol lang sein" 
         len_links = len(links.split())
-        '''     
-        print('Links split:' + str(links.split()))
-        print(type(links.split()))
-        print(len_links)
-        '''
         if len_links != 1:
             correct_rule = False
         # "das eine Symbol auf der linken Pfeilseite sollte
@@ -47,13 +47,9 @@ for regel in testlist:
                 correct_rule = False
         
         # jetzt prüfen wir die rechte Seite in einem Rutsch:
+        
         # "und die rechte Seite ein oder zwei Symbole"  
         len_rechts = len(rechts.split())
-        '''
-        print('Rechts split:' + str(rechts.split()))
-        print(type(rechts.split()))
-        print(len_rechts)
-        '''
         if len_rechts == 0 or len_rechts > 2: 
             correct_rule = False
         #3.b. "ist die rechte Seite 1 lang, 
