@@ -44,7 +44,8 @@ print("-"*65)
 # calculate the score:  
 # if player_a = player_b:
 '''
-Fehler 3: syntax error
+Fehler 3: 'syntax error' 
+wegen falschem Gleichheitsoperator
 Lösung:
 '''
 if player_a == player_b:
@@ -62,6 +63,12 @@ if player_a == player_b:
     ist in python "and"
     so ist es korrekt:
     '''
+# falls die erste Bedingung nicht zutriff,
+# ermöglicht python sehr komfortabel
+# die Prüfung von weiteren Bedingungen
+# so lange, bis eine zutritt, mit nur einem Befehl: elif
+# (mit if-elif-elif-elif.. findet man (nur) die erste Lösung)
+# vs mit if-if-if-if wird jedes if geprüft, es müssen 
 elif (player_b == "scissors" and player_a == "paper") or\
      (player_b =="paper" and player_a == "rock") or\
      (player_b =="rock" and player_a == "scissors"):
