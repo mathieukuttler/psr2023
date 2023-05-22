@@ -10,7 +10,7 @@ else:
     while dec_zahl > 0:
         print('////////')
         print(f'dec: {dec_zahl}')
-        print('decModulo:' + str(dec_zahl % 2))
+        print('decModulo:' + str    (dec_zahl % 2))
         bin_zahl = str(dec_zahl % 2) + bin_zahl
         print(f'bin: {bin_zahl}')
         dec_zahl = dec_zahl // 2
