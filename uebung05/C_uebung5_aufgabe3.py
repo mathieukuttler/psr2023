@@ -12,9 +12,10 @@ woerter = satz_clean.split()
 # Wörter zählen
 anzahl_woerter = len(woerter)
 
-# Wortlängen berechnen
+# Wortlängen berechnen:
 # länge aller Wörter / Anzahl der Wörter
 len_woerter = 0
+
 for x in woerter:
     len_woerter += len(x) 
 

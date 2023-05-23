@@ -1,20 +1,21 @@
-dec_in = input('Gib Dezimalzahl ein: ')
-
-dec_zahl = int(dec_in)
+user_in = input('Gib Dezimalzahl ein: ')
 bin_zahl = ''
 
-# Konvertierung in Binärzahl
-if dec_zahl == 0:
-    bin_zahl = '0'
+# Validitätsprüfung des Inputs:
+val = 0
+for x in user_in:
+    if not x.isdigit():
+        val += 1 # non-digit-character erhöht 'val'
+
+if val > 0:
+    print('Invalid Input')
 else:
-    while dec_zahl > 0:
-        print('////////')
-        print(f'dec: {dec_zahl}')
-        print('decModulo:' + str    (dec_zahl % 2))
-        bin_zahl = str(dec_zahl % 2) + bin_zahl
-        print(f'bin: {bin_zahl}')
-        dec_zahl = dec_zahl // 2
-
-
-print('final:')
-print(bin_zahl)
+    dec_zahl = int(user_in)
+    # Konvertierung in Binärzahl
+    if dec_zahl == 0:
+        bin_zahl = '0'
+    else:
+        while dec_zahl > 0:
+            bin_zahl = str(dec_zahl % 2) + bin_zahl
+            dec_zahl = dec_zahl // 2
+    print(bin_zahl)
